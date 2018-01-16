@@ -1,0 +1,20 @@
+<form class="example-form ml-30">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="First Name" [(ngModel)]="user.firstName" name="firstName">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Last Name" [(ngModel)]="user.lastName" name="lastName">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" [(ngModel)]="user.email" name="email">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Phone Number" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addUser(user)">Add User</button>
+</form>
+

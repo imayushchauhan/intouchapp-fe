@@ -1,0 +1,45 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-header min-height-30">
+    <a class="pull-right" routerLink="/add-user" routerLinkActive="active">Add User</a>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="position">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> S.No.</mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user"> {{user.position}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="database">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> Database Stored</mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user"> {{user.database}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="userName">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> User Name</mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user"> {{user.firstName}} {{user.lastName}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> Email</mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user"> {{user.email}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneNumber">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> Phone Number</mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user"> {{user.phoneNumber}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contactsAndPotentialMergeCandidates">
+        <mat-header-cell class="font-weight-bold" *matHeaderCellDef> Get Contacts And Potential Merge Candidates
+        </mat-header-cell>
+        <mat-cell class="font-size-sm" *matCellDef="let user">
+          <a routerLink="/contacts" routerLinkActive="active" (click)="getSelectedUser(user)">click</a>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

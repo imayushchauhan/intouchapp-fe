@@ -1,0 +1,57 @@
+<div class="section">
+  <h4>
+    Contacts:
+  </h4>
+  <ul *ngIf="selectedUser.contactList.length > 0">
+    <li *ngFor="let contact of selectedUser.contactList">{{contact.contactName}}
+      <ul>
+        <li *ngFor="let contactValue of contact.contactDetail">{{contactValue.value}}</li>
+      </ul>
+    </li>
+  </ul>
+  <p *ngIf="selectedUser.contactList.length === 0">No contact exits</p>
+</div>
+
+<div class="section">
+  <h4>
+    Potential Merge Candidates:
+  </h4>
+  <ul *ngIf="selectedUser.contactList.length > 0">
+    <li *ngFor="let potentialMergeCandidates of potentialMergeCandidatesList">Potential Merge Candidate
+      <ul>
+        <li *ngFor="let potentialMergeCandidate of potentialMergeCandidates">{{potentialMergeCandidate}}</li>
+      </ul>
+    </li>
+  </ul>
+  <p *ngIf="selectedUser.contactList.length === 0">No potential merge candidate exits</p>
+</div>
+
+<div class="section">
+  <button class="mt-sm" mat-raised-button (click)="addContact()">Add Contact</button>
+  <form class="mt-lg" *ngIf="isAddContact">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Contact Name" [(ngModel)]="contactName" name="contactName">
+    </mat-form-field>
+
+    <mat-chip-list>
+      <mat-chip color="primary" (click)="addContactInfo()">Add Contact Info +</mat-chip>
+    </mat-chip-list>
+    <div *ngFor="let contactInfo of contactInfoList">
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Contact Type">
+          <mat-option *ngFor="let contactType of contactInfo.contactInfoType" [value]="contactType.value">
+            {{ contactType.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contact value" [(ngModel)]="contactInfo.contactInfoValue" name="contactValue">
+      </mat-form-field>
+    </div>
+
+    <button class="mt-lg" mat-raised-button (click)="saveContact(contactName, contactInfoList)">Save</button>
+  </form>
+</div>
+
+
