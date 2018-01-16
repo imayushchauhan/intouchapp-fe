@@ -28,8 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Add CORS extension in Google Chrome if you are using development environment
 
-# This application contain three components add-user component is used to add the user, contacts component is used  to show the list of 
+This application contain three components add-user component is used to add the user, contacts component is used  to show the list of 
 the contact of the user, to show the potential merge candidates of the particuar user and to add the conatct the particular contact and finally
 the users component which is used to shw the user list
-
-# data.service.ts is the data service to pass data between two components.
